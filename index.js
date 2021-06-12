@@ -1,4 +1,4 @@
-const http = require('http');
+uconst http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const cors = require('cors');
@@ -23,7 +23,7 @@ io.on('connect', (socket) => {
     socket.join(user.room);
 
     socket.emit('message', { user: 'admin', text: `${user.name}, Bem vindx a sala ${user.room}.` });
-    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} entrou na sala!` });
 
     io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
 
